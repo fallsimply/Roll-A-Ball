@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour {
 	public int marginOfError;
 	public Text countText;
 	public Text winText;
+	public int[] platforms;
+	public GameObject[] doors;
 	private int count;
 	private Rigidbody rb;
 	private int totalCollectables;
+
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 			count++;
 			SetCountText();
 		}
+		ToggleDoor(1);
 	}
 
 	void SetCountText() {
@@ -45,5 +49,10 @@ public class PlayerController : MonoBehaviour {
 
 	void SetTotalCollectables() {
 		totalCollectables = GameObject.FindGameObjectsWithTag("Collectable").Length;
+	}
+
+	void ToggleDoor(int num) {
+		var obj = doors[(num - 1)];
+		obj.SetActive(!obj.activeSelf);
 	}
 }

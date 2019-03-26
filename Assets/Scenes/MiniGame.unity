@@ -972,6 +972,7 @@ MonoBehaviour:
   marginOfError: 4
   countText: {fileID: 18838603}
   winText: {fileID: 1283486432}
+  platforms: 00000000000000000000000000000000
 --- !u!1001 &590436543
 PrefabInstance:
   m_ObjectHideFlags: 0
