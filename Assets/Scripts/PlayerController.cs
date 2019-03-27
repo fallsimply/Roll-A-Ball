@@ -10,14 +10,14 @@ public class PlayerController : MonoBehaviour {
 	public Text winText;
 	public int[] platforms;
 	public GameObject[] doors;
-	private int count;
+	private int count = 0;
 	private Rigidbody rb;
 	private int totalCollectables;
+	private int level = 0;
 
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
-		count = 1;
 		SetTotalCollectables();
 		SetCountText();
 		winText.text = "";
@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour {
 			other.gameObject.SetActive(false);
 			count++;
 			SetCountText();
+			CheckPlatformCompleted();
 		}
-		ToggleDoor(1);
 	}
 
 	void SetCountText() {
@@ -48,11 +48,19 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void SetTotalCollectables() {
-		totalCollectables = GameObject.FindGameObjectsWithTag("Collectable").Length;
+		totalCollectables = platforms[(platforms.Length - 1)];
+		Debug.Log($"Total Collectables: {totalCollectables}");
 	}
 
-	void ToggleDoor(int num) {
-		var obj = doors[(num - 1)];
+	void ToggleDoor(int index = 0) {
+		var obj = doors[(index)];
 		obj.SetActive(!obj.activeSelf);
+	}
+
+	void CheckPlatformCompleted() {
+		if (platforms[level] == count) {
+			ToggleDoor(level);
+			level++;
+		};
 	}
 }
