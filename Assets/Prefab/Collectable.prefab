@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2961509239012426887}
   m_Layer: 0
   m_Name: Collectable
-  m_TagString: Collectable
+  m_TagString: Good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d75542b3529ccc84592cd6c6d3d9a1cb, type: 2}
+  - {fileID: 2100000, guid: 3a3d4e892eac6fa448117682f900f741, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
